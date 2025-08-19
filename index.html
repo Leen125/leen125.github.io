@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CVP线上生命 - 独立说唱厂牌</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+        /* 基础样式 */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Bebas Neue', sans-serif;
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+        }
+        
+        .red-text {
+            color: #FF0000;
+        }
+        
+        /* 导航栏 */
+        nav {
+            background-color: #000;
+            padding: 15px;
+            border-bottom: 2px solid #FF0000;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 5px 10px;
+        }
+        
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+            padding: 5px 10px;
+        }
+        
+        nav a:hover {
+            color: #FF0000;
+        }
+        
+        /* 英雄区域 */
+        .hero {
+            height: 90vh;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+            background-size: cover;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: clamp(4rem, 10vw, 8rem);
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .slogan {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* 内容区域 */
+        .section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        /* 艺人展示 */
+        .artists {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .artist-card {
+            background-color: #222;
+            padding: 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 1px solid #333;
+        }
+        
+        .artist-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.2);
+            border-color: #FF0000;
+        }
+        
+        .artist-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 3px;
+            margin-bottom: 15px;
+        }
+        
+        .artist-card h3 {
+            margin: 0 0 10px;
+            font-size: 1.5rem;
+        }
+        
+        .artist-card p {
+            margin: 0;
+            color: #aaa;
+            font-size: 1rem;
+        }
+        
+        /* 音乐展示 */
+        .music-player {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .track {
+            width: 300px;
+            background-color: #222;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        /* 活动预告 */
+        .events {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .event-card {
+            background-color: #222;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        
+        /* 联系表单 */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            border: 1px solid #444;
+            color: #fff;
+            border-radius: 3px;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+        }
+        
+        .submit-btn {
+            background-color: #FF0000;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #cc0000;
+        }
+        
+        /* 社交媒体图标 */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-icons a {
+            color: #fff;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: #FF0000;
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: #111;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid #FF0000;
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .hero {
+                height: 70vh;
+            }
+            
+            .artists {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            nav ul {
+                justify-content: space-around;
+            }
+            
+            nav li {
+                margin: 5px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .artists {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo {
+                font-size: 3rem;
+            }
+            
+            .slogan {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <ul>
+            <li><a href="#home">首页</a></li>
+            <li><a href="#artists">艺人</a></li>
+            <li><a href="#music">音乐</a></li>
+            <li><a href="#events">活动</a></li>
+            <li><a href="#about">关于</a></li>
+            <li><a href="#contact">联
